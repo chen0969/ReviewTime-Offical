@@ -1,0 +1,58 @@
+@use "_variables" as *;
+@use "_objects" as *;
+@use "_font" as *;
+
+body{
+    background-color: $main-bg;
+}
+
+h1, h2{
+    @include title;
+    font-weight: 900;
+}
+
+h3, h4, h5, h6{
+    @include body;
+}
+p, li{
+    @include body;
+}
+a{
+    @include body;
+    text-decoration: none;
+    color: $main-orange;
+}
+a:hover{
+    @include body-bold;
+}
+a:visited{
+    @include body;
+}
+a:active{
+    @include body;
+}
+
+li{
+    list-style: none;
+}
+
+form{
+    overflow-x: hidden;
+}
+
+input{
+    @include body;
+    border: 0.2rem solid $main-blue;
+    border-radius: 1rem;
+    padding: 10px;
+    margin: 0.5rem !important;
+    &:focus{
+        outline: none;
+        border-color: $main-red;
+    }
+}
+
+label{
+    @include title;
+    font-size: 2rem;
+}

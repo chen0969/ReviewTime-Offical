@@ -1,0 +1,18 @@
+@use "_variables" as *;
+@use "_font" as *;
+
+.o-link{
+    text-decoration: none;
+    color: $main-blue;
+    &:hover{
+        @include title;
+        color: $main-red;
+    }
+    &:visited{
+        color: $main-purple;
+    }
+    &__current{
+        color: $main-green;
+    }
+}
+
