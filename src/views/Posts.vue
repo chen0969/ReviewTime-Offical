@@ -4,6 +4,7 @@ import { ALL_POSTS_API_URL } from "../utils/api.js";
 import Loader from "../components/Loader.vue";
 import { useFetch } from "@vueuse/core";
 import { RouterLink } from "vue-router";
+import WelcomeLoader from "../components/WelcomeLoader.vue";
 
 // set inti
 const posts = ref([]);
@@ -26,17 +27,28 @@ console.log(posts);
 <template>
   <div class="container">
     <Loader v-if="isLoading" class="row p-5 animate__animated animate__fadeIn" />
-    <div v-else class="row animate__animated animate__fadeIn">
-      <h1 class="col-12 text-center">Movie Reviews!</h1>
+    <div v-else class="row flex-column align-items-center animate__animated animate__fadeIn">
+      <h1 class="col-md-6 text-center">Review Time!</h1>
+      <h3 class="col-md-6 text-center text-secondary">Let's see the fresh review of the popular movie & shows!</h3>
       <hr>
-      <ul>
-        <RouterLink :to="`/singlepost/${post.documentId}`" v-for="post in posts">
-          <li>{{ post.title }}</li>
+      <ul class="col-md-6">
+        <RouterLink :to="`/singlepost/${post.documentId}`" v-for="post in posts" class="o-link">
+          <li class="o-link"> <span class="o-poster" :style="{ backgroundImage: `url(${post.movie_poster?.url})` }"></span> {{ post.title }}</li>
+          <hr>
         </RouterLink>
       </ul>
     </div>
   </div>
+  <WelcomeLoader />
 </template>
 
 <style scoped lang="scss">
+.o-poster {
+  background-size: cover;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 5px; 
+  margin-right: 10px; 
+  display: inline-block; 
+}
 </style>

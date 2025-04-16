@@ -3,7 +3,7 @@
 
 <template>
     <div class="row justify-content-center align-items-center">
-        <div class="col-12 text-center">
+        <div class="col-12 text-center p-5">
             <div class="loader"></div>
         </div>
     </div>
@@ -16,6 +16,9 @@
   padding: 5px;
   background: #fff;
   filter: blur(4px) contrast(12);
+  filter: blur(6px);
+  opacity: 0.5;
+  transform: scale(2);
 }
 .loader:before,
 .loader:after {

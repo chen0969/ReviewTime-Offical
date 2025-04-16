@@ -16,11 +16,13 @@ h3, h4, h5, h6{
 }
 p, li{
     @include body;
+    font-size: 2rem;
 }
 a{
     @include body;
     text-decoration: none;
     color: $main-orange;
+    font-size: 1.5rem;
 }
 a:hover{
     @include body-bold;
